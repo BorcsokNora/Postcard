@@ -33,30 +33,36 @@ class MainActivity : ComponentActivity() {
                 ) {
                     Box {
                         val context = LocalContext.current
-                        MyComposable()
-                    // TODO: 1. add a button by uncommenting the below code
-
-//                        Button(
-//                            modifier = Modifier
-//                                .padding(16.dp)
-//                                .align(Alignment.BottomCenter),
-//                            colors = ButtonDefaults.buttonColors(
-//                                contentColor = Color(0xFF0580A8),
-//                                backgroundColor = Color(0xE6FFFFFF),
-//                            ),
-//                            onClick = {
-//                                //TODO: 2. show a text when clicking on the button:
-//                                // (works only on a physical device)
-//                                //Toast.makeText(context, "Awesome!!!", LENGTH_SHORT).show()
-//                            }
-//                        ) {
-//                            Text(
-//                                modifier = Modifier.padding(horizontal = 16.dp),
-//                                text = "CLICK",
-//                                fontWeight = FontWeight.Bold,
-//                                fontSize = 20.sp
+                        // TODO: 1. wrap "MyComposable" within this custom container.
+                        //  This will enable sharing the screen as an image
+                        //val sharePostcard = PostcardContainer {
+                            MyComposable()
+                        //}
+                        Button(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .align(Alignment.BottomCenter),
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = Color(0xFF0580A8),
+                                backgroundColor = Color(0xE6FFFFFF),
+                            ),
+                            onClick = {
+                                // TODO: 2. replace Toast function with this:
+                                //  sharePostcard()
+                                Toast.makeText(context, "Awesome!!!", LENGTH_SHORT).show()
+                            }) {
+                            // TODO: 3. add share icon to the button
+//                            Icon(
+//                                painter = painterResource(id = R.drawable.share_icon),
+//                                contentDescription = null
 //                            )
-//                        }
+                            Text(
+                                modifier = Modifier.padding(horizontal = 16.dp),
+                                text = "CLICK", // TODO: 4. rename button to "SHARE"
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 20.sp
+                            )
+                        }
                     }
                 }
             }
