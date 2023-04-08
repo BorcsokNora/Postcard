@@ -3,15 +3,14 @@ package com.example.postcard
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.postcard.ui.theme.PostcardTheme
-
-// TODO: 1. run the app (on an emulator or on a physical device)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,11 +19,10 @@ class MainActivity : ComponentActivity() {
             PostcardTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    // TODO: 2. uncomment this line to change background color
-                    //color = Color(0xFFD3BDF8)
+                    color = Color(0xFFFFFFFF)
                 ) {
-                    // TODO: 3. write your name in the quotation marks
-                    Greeting(name = "Android")
+                    // TODO: 1. open the Split view to see the preview of "MyComposable" within Android Studio
+                    MyComposable()
                 }
             }
         }
@@ -32,7 +30,36 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    // TODO: 4. delete the text in the quotation marks and replace it with any text you want
-    Text(text = "Hello $name!")
+fun MyComposable() {
+
+    Column {
+        Text(text = "GREETINGS FROM")
+        Text(text = "MARSEILLE")
+    }
+
+    Row {
+        // TODO: 2. copy the texts in here to show them in a row, and comment out the column
+    }
+
+    // TODO: 3. uncomment the below code to show the texts in a box,
+    //  then change the order of the two texts
+/*    Box {
+        Text(
+            text = "GREETINGS FROM",
+            modifier = Modifier.background(Color(0xFF4CAF50))
+        )
+        Text(
+            text = "MARSEILLE",
+            modifier = Modifier.background(Color(0xFFFF9800))
+        )
+    }
+*/
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun ComposablePreview() {
+    MyComposable()
 }
