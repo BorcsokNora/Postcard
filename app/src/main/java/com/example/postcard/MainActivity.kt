@@ -1,6 +1,8 @@
 package com.example.postcard
 
 import android.os.Bundle
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -12,7 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,7 +31,33 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(0xFFFFFFFF)
                 ) {
-                    MyComposable()
+                    Box {
+                        val context = LocalContext.current
+                        MyComposable()
+                    // TODO: 1. add a button by uncommenting the below code
+
+//                        Button(
+//                            modifier = Modifier
+//                                .padding(16.dp)
+//                                .align(Alignment.BottomCenter),
+//                            colors = ButtonDefaults.buttonColors(
+//                                contentColor = Color(0xFF0580A8),
+//                                backgroundColor = Color(0xE6FFFFFF),
+//                            ),
+//                            onClick = {
+//                                //TODO: 2. show a text when clicking on the button:
+//                                // (works only on a physical device)
+//                                //Toast.makeText(context, "Awesome!!!", LENGTH_SHORT).show()
+//                            }
+//                        ) {
+//                            Text(
+//                                modifier = Modifier.padding(horizontal = 16.dp),
+//                                text = "CLICK",
+//                                fontWeight = FontWeight.Bold,
+//                                fontSize = 20.sp
+//                            )
+//                        }
+                    }
                 }
             }
         }
@@ -39,40 +67,30 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyComposable() {
     Box(Modifier.fillMaxSize()) {
-        // TODO: 1. add a Modifier to the image to fill the max height,
-        //            modifier = Modifier.fillMaxHeight(),
-
-        // TODO: 2. scale the image to fill the screen with ContentScale.Crop
-        //            contentScale = ContentScale.Crop,
         Image(
             painter = painterResource(id = R.drawable.marseille),
             contentDescription = null,
+            modifier = Modifier.fillMaxHeight(),
+            contentScale = ContentScale.Crop,
         )
-
         Column(
             modifier = Modifier
+                .background(Color(0x40FFFFFF))
+                .padding(8.dp)
         ) {
-            // TODO: 3. add styling to the text
-            //  change the text color to white: color = Color(0xFFFFFFFF),
-            //  increase the size: fontSize = 14.sp,
-            //  make the text more spacious: letterSpacing = 6.sp
             Text(
                 text = "GREETINGS FROM",
+                fontSize = 14.sp,
+                letterSpacing = 6.sp,
+                color = Color(0xFFFFFFFF)
             )
-            // TODO: 4. add styling to the text:
-            //  color: white,
-            //  fontSize: 32.sp,
-            //  letterSpacing: 8.sp,
-            //  fontWeight: FontWeight.Bold
             Text(
                 text = "MARSEILLE",
+                fontSize = 32.sp,
+                letterSpacing = 8.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFFFFFFFF)
             )
-
-        // TODO: 5. replace the default Modifier of the column to emphasize the text:
-        //       modifier = Modifier
-        //          .background(Color(0x40FFFFFF))
-        //          .padding(8.dp)
-
         }
     }
 }
