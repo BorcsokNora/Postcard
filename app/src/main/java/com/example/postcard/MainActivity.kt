@@ -34,29 +34,27 @@ class MainActivity : ComponentActivity() {
                     Box {
                         val context = LocalContext.current
                         MyComposable()
-                    // TODO: 1. add a button by uncommenting the below code
-
-//                        Button(
-//                            modifier = Modifier
-//                                .padding(16.dp)
-//                                .align(Alignment.BottomCenter),
-//                            colors = ButtonDefaults.buttonColors(
-//                                contentColor = Color(0xFF0580A8),
-//                                backgroundColor = Color(0xE6FFFFFF),
-//                            ),
-//                            onClick = {
-//                                //TODO: 2. show a text when clicking on the button:
-//                                // (works only on a physical device)
-//                                //Toast.makeText(context, "Awesome!!!", LENGTH_SHORT).show()
-//                            }
-//                        ) {
-//                            Text(
-//                                modifier = Modifier.padding(horizontal = 16.dp),
-//                                text = "CLICK",
-//                                fontWeight = FontWeight.Bold,
-//                                fontSize = 20.sp
-//                            )
-//                        }
+                        Button(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .align(Alignment.BottomCenter),
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = Color(0xFF0580A8),
+                                backgroundColor = Color(0xE6FFFFFF),
+                            ),
+                            onClick = {
+                                // Show a text when clicking on the button:
+                                // (works only on a physical device)
+                                Toast.makeText(context, "Awesome!!!", LENGTH_SHORT).show()
+                            }
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(horizontal = 16.dp),
+                                text = "CLICK",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 20.sp
+                            )
+                        }
                     }
                 }
             }
