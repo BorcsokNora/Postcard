@@ -11,8 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.postcard.ui.theme.PostcardTheme
 
-// TODO: 1. run the app (on an emulator or on a physical device)
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,11 +18,9 @@ class MainActivity : ComponentActivity() {
             PostcardTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    // TODO: 2. uncomment this line to change background color
-                    //color = Color(0xFFD3BDF8)
+                    color = Color(0xFFD3BDF8)
                 ) {
-                    // TODO: 3. write your name in the quotation marks
-                    Greeting(name = "Android")
+                    Greeting(name = "Nora")
                 }
             }
         }
@@ -33,6 +29,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    // TODO: 4. delete the text in the quotation marks and replace it with any text you want
-    Text(text = "Hello $name!")
+//    Text(text = "Hello $name!")
+    Text(text = "This is another text. It doesn't show the name.")
 }
