@@ -1,8 +1,6 @@
 package com.example.postcard
 
 import android.os.Bundle
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -32,12 +30,10 @@ class MainActivity : ComponentActivity() {
                     color = Color(0xFFFFFFFF)
                 ) {
                     Box {
-                        val context = LocalContext.current
-                        // TODO: 1. wrap "MyComposable" within this custom container.
-                        //  This will enable sharing the screen as an image
-                        //val sharePostcard = PostcardContainer {
+                        //  Enable sharing the screen as an image
+                        val sharePostcard = PostcardContainer {
                             MyComposable()
-                        //}
+                        }
                         Button(
                             modifier = Modifier
                                 .padding(16.dp)
@@ -47,18 +43,15 @@ class MainActivity : ComponentActivity() {
                                 backgroundColor = Color(0xE6FFFFFF),
                             ),
                             onClick = {
-                                // TODO: 2. replace Toast function with this:
-                                //  sharePostcard()
-                                Toast.makeText(context, "Awesome!!!", LENGTH_SHORT).show()
+                                sharePostcard()
                             }) {
-                            // TODO: 3. add share icon to the button
-//                            Icon(
-//                                painter = painterResource(id = R.drawable.share_icon),
-//                                contentDescription = null
-//                            )
+                              Icon(
+                                  painter = painterResource(id = R.drawable.share_icon),
+                                  contentDescription = null
+                              )
                             Text(
                                 modifier = Modifier.padding(horizontal = 16.dp),
-                                text = "CLICK", // TODO: 4. rename button to "SHARE"
+                                text = "SHARE",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 20.sp
                             )
